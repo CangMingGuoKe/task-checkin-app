@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  task-reminder:
+    build: .
+    container_name: task-reminder-container
+    ports:
+      - "80:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - ./tasks.db:/app/tasks.db
+    restart: unless-stopped
